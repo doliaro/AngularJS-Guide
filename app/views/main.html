@@ -1,0 +1,135 @@
+
+<div class="jumbotron">
+  <h1 ng-bind="myname"> </h1>
+  <p class="lead">
+    <img src="http://www.titanui.com/wp-content/uploads/2014/10/13/AngularJS-Flat-Icon-Vector.png" alt="I'm Yeoman"><br>
+   A simple guide for getting started with AngularJS
+  </p>
+  <p>
+
+<div class="btn btn-lg btn-success" 
+      ng-click="showme=!showme">
+      Get Started
+      <br>
+      </div></p>
+</div>
+
+<div ng-show="showme" class="row marketing slide">
+  <img src="../images/divider.jpg"><br>
+  <h1>- What is AngularJS -</h1>
+    <p>AngularJS is a JavaScript MVC framework developed by Google 
+    that lets you build well structured, easily testable, and 
+    maintainable single page applications.
+    </p>  
+  <br>  
+  <img src="../images/divider.jpg"><br>
+  <h1> - Why use it - </h1>
+   <p>This framework consists of a tightly integrated toolset that 
+    will help you build well structured client-side applications in 
+    a modular fashion with less code and more flexibility.
+   </p>
+   <p>
+    It also implements two-way data binding, connecting your HTML 
+    to your JavaScript data models seamlessly. This means that any 
+    update on your model will be immediately reflected in your view 
+    without the need for any DOM manipulation or event handling, which is awesome.
+   </p>
+  <br> 
+  <img src="../images/divider.jpg"><br>
+  <h1>- Setup -</h1>
+  <p>
+  Using yeoman is a nice way to get an AngularJS app up and running quickly.
+  First you need to install it and a yeoman generator for AngularJS. <br>
+  Type this into your shell :
+  </p>
+  <p>
+  <code> $ npm install -g yo</code>
+  </p>
+  <p>
+  Install generator-angular:
+  </p>
+  <p>
+  <code>$ npm install -g generator-angular</code>
+  </p>
+  <p>Make a new directory, and cd into it:</p>
+  <p>
+  <code>$ mkdir my-new-project && cd $_</code>
+  </p>
+  <p>Run yo angular, optionally passing an app name:</p>
+  <p><code>$ yo angular [app-name]</code></p>
+  <p>This will generate a new AngularJS app, and all the boilerplate you 
+    need to get started. The app skeleton should something like this: </p>
+  <p class="center_me">
+  <img src="../images/skeleton.png">
+  </p>
+  <p>To preview your web app in your favourite web browser, you don't have 
+    to do anything special to set up a local web server on your computer. 
+    <br>Start your server with:
+  </p>
+  <p><code>$ grunt serve</code> </p>  
+  </p>  
+  <img src="../images/divider.jpg"><br>
+  <h1>- Model View Controller -</h1>
+  <p>
+    Remember that we mentioned AngualrJS uses the Model View Controller or more popularly MVC is a software design pattern for developing web applications. A Model View Controller pattern is made up of the following three parts:
+  </p> 
+  <h2> The Model </h2>
+  <p>The model is responsible for managing application data. It responds to the request from view and to the instructions from controller to update itself</p>
+   <h2> The View </h2>
+  <p>A presentation of data in a particular format, triggered by the controller's decision to present the data. They are script-based template systems such as JSP, ASP, PHP and very easy to integrate with AJAX technology.</p>
+   <h2> The Controller </h2>
+  <p>The controller responds to user input and performs interactions on the data model objects. The controller receives input, validates it, and then performs business operations that modify the state of the data model. </p>
+<img src="../images/divider.jpg"><br>
+  <h1>- Under the Hood -</h1><br>
+  <h2>Directives</h2>
+  <p>Directives are one of the most powerful feature of AngularJS. They allow you to extend HTML to answer the needs of web applications. Directives let you specify how your page should be structured for the data available in a given scope.</p>
+  <h2> Two Way Data Binding <h2/>
+   <p ng-non-bindable> Angular does not only let you structure your views with directives, it also give you the ability to define the binding between the data in your scope and the content of your views. We have seen how we can display values from our scope using their attributes in expressions like <code>{{user.name}}</code>. You could also use operations in those expressions <code>{{object.operation()}}</code>. 
+   </p> 
+    <h2>Modules</h2>
+  <p>In AngularJS, applications are structured in modules. A module can depend on other modules and a module can contain controllers, services, directives and filters. Since AngularJS has been created to build maintainable web applications, it helps you to separate your application in small, easily testable, components.</p>
+  <h2>Controllers</h2>
+  <p>In AngularJS, the controller is where the behavior of your application is located. Controllers are used to populate the scope with all the necessary data for the view. Using proper separation of concerns, controllers should never contain anything related to the DOM.</p>
+  <p>
+  Controllers communicate with the view using a specific service named “$scope”. This service let the controller give objects and functions to the views that can later be manipulated with expressions and directives. In order to be easily tested, controllers are defined using dependency injection.</p>
+  <h2>Scope</h2>
+  <p>The scope is used to link the controllers and the views to which they are binded. A controller can add data and function in its scope and then they will be accessible in the view. Without digging into the details too much, when changes are occuring on the scope, events are fired to warn those who are interested. The views are using those events to know if they should refresh the elements involved.</p>
+  <img src="../images/divider.jpg"><br>
+  <h1> - AngularJS in action -</h1><br>
+  <h3> This section will introduce a few basic concepts seen in AngularJS </h3>
+  <p>
+    The example below uses Angular’s directives, and is a simple demonstration using the framework. We are using Angular’s directives to set and read the active variable, and when it changes, it causes the HTML that uses it to be updated automatically. In Angular’s terminology, this variable is called a model. It is available to all directives in the current scope, and can be accessed in your controllers.
+  </p>
+  <!-- Menu -->
+  <div id="main" ng-app>
+  <img src="../images/divider.jpg">
+  <nav class="{{active}}" ng-click="$event.preventDefault()">
+    <a href="#" class="home" ng-click="active='home'">Home</a>
+    <a href="#" class="projects" ng-click="active='projects'">Projects</a>
+    <a href="#" class="services" ng-click="active='services'">Services</a>
+    <a href="#" class="contact" ng-click="active='contact'">Contact</a>
+  </nav>
+
+  <p ng-hide="active">Please click a menu item</p>
+  <p margin-bottom:15px ng-show="active">You chose <b>{{active}}</b></p>
+</div>
+<img src="../images/divider.jpg"><br>
+<p> This next example demonstrates a simple use of a controller using an inline editor. The controller will initialize the models and declare two methods for toggling the tooltip. When the controller function is executed, it gets the special <code>$scope</code> object as a parameter. Adding properties or functions to it makes them available to the view. Using the <code>ng-model</code> binding on the text field tells Angular to update that variable when the value of the field changes (this in turn re-renders the paragraph with the value).
+
+<img src="../images/divider.jpg"><br>
+
+<div id="main" ng-app ng-controller="Editor" ng-click="hideTooltip()">
+  <!-- Inline Editor -->
+  <div class="tooltop" ng-click="$event.stopPropagation()" ng-show="showtooltip">
+    <input type="text" ng-model="value" />
+  </div>
+  <div class="box"
+  <p ng-click="toggleTooltip($event)">{{value}}</p>
+  </div>
+</div>
+
+<img src="../images/divider.jpg"><br>
+<h2> Make sure you Check out the Addiontal Resource tab
+</div>
+
+
